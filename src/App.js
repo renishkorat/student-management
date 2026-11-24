@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import PrivateRoute from "./components/PrivateRoute";
+
+import StudentList from "./components/StudentList";
+import StudentForm from "./components/StudentForm";
+import StudentDetails from "./components/StudentDetails";
+
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <Navbar />
+
+      <Routes>
+
+        {/* Public Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Private Routes */}
+        <Route element={<PrivateRoute />}>
+
+          <Route path="/" element={<StudentList />} />
+
+          <Route path="/add" element={<StudentForm />} />
+
+          <Route
+            path="/student/:id"
+            element={<StudentDetails />}
+          />
+
+          <Route path="/profile" element={<Profile />} />
+
+        </Route>
+
+        <Route
+          path="*"
+          element={
+            <div className="container text-center py-5">
+              <h2>404 - Page Not Found</h2>
+            </div>
+          }
+        />
+
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

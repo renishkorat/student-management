@@ -1,70 +1,197 @@
-# Getting Started with Create React App
+# Student Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based Student Management System that allows users to manage student records with CRUD operations. The application uses Redux and Redux Thunk for state management and JSON Server as a backend API.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Student List:** Display all students dynamically.
+- **Add Student:** Add new students with complete details.
+- **View Details:** View individual student information.
+- **Update Student:** Edit existing student records.
+- **Delete Student:** Remove student records.
+- **Search:** Search students by name.
+- **Sorting:** Sort students by name or roll number.
+- **Filtering:** Filter students by class.
+- **Authentication:** Simple admin login and logout.
+- **Private Routes:** Restrict student pages to authenticated users.
+- **Responsive Navbar:** Navigation for desktop and mobile devices.
+- **Bootstrap UI:** Clean and responsive user interface.
 
-### `npm start`
+## 🛠️ Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- React Router DOM
+- Redux
+- React Redux
+- Redux Thunk
+- Bootstrap 5
+- React Icons
+- JSON Server
+- JavaScript
+- CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```text
+student-management/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── PrivateRoute.jsx
+│   │   ├── StudentList.jsx
+│   │   ├── StudentForm.jsx
+│   │   └── StudentDetails.jsx
+│   │
+│   ├── pages/
+│   │   ├── Login.jsx
+│   │   └── Profile.jsx
+│   │
+│   ├── redux/
+│   │   ├── actions/
+│   │   │   └── studentActions.js
+│   │   ├── reducers/
+│   │   │   └── studentReducer.js
+│   │   └── store.js
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+│
+├── db.json
+├── package.json
+└── README.md
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Installation & Setup
 
-### `npm run build`
+### 1. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Open Project Folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd student-management
+```
 
-### `npm run eject`
+### 3. Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Start React Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React application will run at:
 
-## Learn More
+```text
+http://localhost:3000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Start JSON Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open another terminal and run:
 
-### Code Splitting
+```bash
+npm run server
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+JSON Server will run at:
 
-### Analyzing the Bundle Size
+```text
+http://localhost:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+API endpoint:
 
-### Making a Progressive Web App
+```text
+http://localhost:5000/students
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🗄️ JSON Server
 
-### Advanced Configuration
+JSON Server is used as a mock backend to store and manage student information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The `db.json` file contains student records with the following fields:
 
-### Deployment
+- ID
+- Name
+- Roll Number
+- Phone
+- Email
+- Age
+- Class
+- Grade
+- Image
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### API Operations
 
-### `npm run build` fails to minify
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/students` | Get all students |
+| GET | `/students/:id` | Get one student |
+| POST | `/students` | Add student |
+| PUT | `/students/:id` | Update student |
+| DELETE | `/students/:id` | Delete student |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔐 Login Credentials
+
+Use the following demo credentials to access the application:
+
+| Field | Credentials |
+|---|---|
+| Email | admin@gmail.com |
+| Password | admin123 |
+
+**Note:** This is a demo authentication system using localStorage. It is not intended for production security.
+
+## 🔄 Redux State Management
+
+Redux is used to manage student data across the application.
+
+### Actions
+
+- FETCH_STUDENTS_REQUEST
+- FETCH_STUDENTS_SUCCESS
+- FETCH_STUDENTS_FAILURE
+- ADD_STUDENT_SUCCESS
+- UPDATE_STUDENT_SUCCESS
+- DELETE_STUDENT_SUCCESS
+
+Redux Thunk handles asynchronous API operations such as fetching, adding, updating and deleting students.
+
+## 📋 Student Management Operations
+
+1. Login using admin credentials.
+2. View all available students.
+3. Add a new student.
+4. Open student details.
+5. Edit student information.
+6. Delete student records.
+7. Search students by name.
+8. Sort students by name or roll number.
+9. Filter students by class.
+10. View admin profile.
+11. Logout from the application.
+
+## 📱 Responsive Design
+
+The application uses Bootstrap 5 to provide a responsive layout that works on:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
